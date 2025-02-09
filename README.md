@@ -10,6 +10,7 @@ O objetivo deste projeto é servir como material de estudo e referência para de
 
 A estrutura do projeto segue a convenção do Cargo para múltiplos binários:
 
+```bash
 data-structures-and-algorithms-with-rust/
 ├── Cargo.toml
 └── src/
@@ -17,7 +18,7 @@ data-structures-and-algorithms-with-rust/
     │   ├── linked_lists.rs
     │   └── dynamic_array.rs
     └── lib.rs   # (Opcional - para código compartilhado entre os binários)
-
+```
 
 Cada arquivo em `src/bin/` é compilado como um executável separado.
 
