@@ -17,8 +17,10 @@ data-structures-and-algorithms-with-rust/
     └── bin/
         ├── linked_lists.rs
         └── dynamic_array.rs
+```
 
 Each file in src/bin/ is compiled as a separate executable.
+
 ## How to Run
 
 To run the Linked Lists implementation, use the command:
