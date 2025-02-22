@@ -1,14 +1,14 @@
-# data-structures-and-algorithms-with-rust
+# Algorithms-with-rust
 
-Projeto open source com implementações educacionais de **estruturas de dados** e **algoritmos** em Rust.  
+An open source project with educational implementations of **data structures** and **algorithms** in Rust.
 
-## Motivação
+## Motivation
 
-O objetivo deste projeto é servir como material de estudo e referência para desenvolvedores que desejam aprender mais sobre como funcionam internamente essas estruturas de dados em Rust. As implementações são simples e diretas, facilitando a compreensão dos conceitos e servindo de base para futuras extensões.
+The objective of this project is to serve as study material and a reference for developers who want to learn more about how these data structures work internally in Rust. The implementations are simple and straightforward, making it easier to understand the concepts and serving as a foundation for future extensions.
 
-## Estrutura do Projeto
+## Project Structure
 
-A estrutura do projeto segue a convenção do Cargo para múltiplos binários:
+The project structure follows Cargo's convention for multiple binaries:
 
 ```bash
 data-structures-and-algorithms-with-rust/
@@ -17,28 +17,25 @@ data-structures-and-algorithms-with-rust/
     └── bin/
         ├── linked_lists.rs
         └── dynamic_array.rs
-```
 
-Cada arquivo em `src/bin/` é compilado como um executável separado.
+Each file in src/bin/ is compiled as a separate executable.
+## How to Run
 
-## Como Executar
-
-Para executar a implementação de **Linked Lists**, utilize o comando:
+To run the Linked Lists implementation, use the command:
 
 ```bash
 cargo run --bin linked_lists
 cargo run --bin dynamic_array
 ```
-## Contribuições
+## Contributions
 
-Contribuições são muito bem-vindas! Se você deseja melhorar as implementações, corrigir bugs ou sugerir novas estruturas e algoritmos, sinta-se à vontade
+Contributions are very welcome! If you wish to improve the implementations, fix bugs, or suggest new data structures and algorithms, feel free to contribute.
 
-## Licença
+## License
 
-Este projeto está licenciado sob a [Licença MIT](LICENSE).
+This project is licensed under the MIT License.
 
-## Contato
+## Contact
 
-Em caso de dúvidas, sugestões ou feedback, por favor, abra uma *issue* no GitHub.
-
+If you have any questions, suggestions, or feedback, please open an issue on GitHub.
     
