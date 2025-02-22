@@ -14,18 +14,12 @@ A estrutura do projeto segue a convenção do Cargo para múltiplos binários:
 data-structures-and-algorithms-with-rust/
 ├── Cargo.toml
 └── src/
-    ├── bin/
-    │   ├── linked_lists.rs
-    │   └── dynamic_array.rs
-    └── lib.rs   # (Opcional - para código compartilhado entre os binários)
+    └── bin/
+        ├── linked_lists.rs
+        └── dynamic_array.rs
 ```
 
 Cada arquivo em `src/bin/` é compilado como um executável separado.
-
-## Pré-requisitos
-
-- [Rust](https://www.rust-lang.org/tools/install) (versão 1.XX ou superior)
-- Cargo (geralmente instalado juntamente com o Rust)
 
 ## Como Executar
 
@@ -37,14 +31,7 @@ cargo run --bin dynamic_array
 ```
 ## Contribuições
 
-Contribuições são muito bem-vindas! Se você deseja melhorar as implementações, corrigir bugs ou sugerir novas estruturas e algoritmos, sinta-se à vontade para:
-
-- Abrir uma *issue* para discutir a sua ideia.
-- Fazer um *fork* do repositório.
-- Criar uma branch para a sua feature (`git checkout -b feature/minha-nova-feature`).
-- Realizar seus commits (`git commit -m 'Adiciona nova feature'`).
-- Enviar para a branch (`git push origin feature/minha-nova-feature`).
-- Abrir um *Pull Request*.
+Contribuições são muito bem-vindas! Se você deseja melhorar as implementações, corrigir bugs ou sugerir novas estruturas e algoritmos, sinta-se à vontade
 
 ## Licença
 
