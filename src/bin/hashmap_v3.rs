@@ -45,14 +45,26 @@ impl<K: ToString + std::clone::Clone + std::cmp::PartialEq, V: std::clone::Clone
         None
     }
 
-    //// This remove method uses the same match structure as the original implementation.
-    //pub fn remove(&mut self, key: &K) -> Option<V> {
-    //    let index = hash_to_index(key, self.size);
-    //    match self.arr[index].take() {
-    //        Some((_, value)) => Some(value),
-    //        None => None,
-    //    }
-    //}
+    pub fn remove(&mut self, key: &K) -> Option<V> {
+        let index = hash_to_index(key, self.size);
+        let arr = &mut self.buckets[index];
+        let mut pos = -1;
+        for (local_index, i) in arr.iter_mut().enumerate() {
+            if let Some((local_key, _value)) = i {
+                if local_key == key {
+                    pos = local_index as i32;
+                    break;
+                }
+            }
+        }
+        if pos != -1 {
+            let removed = arr.remove(pos as usize);
+            if let Some((_, value)) = removed {
+                return Some(value);
+            }
+        }
+        None
+    }
 }
 
 fn main() {
@@ -69,17 +81,14 @@ fn main() {
         println!("No value found");
     }
 
-    //map.remove(&"nome".to_string());
-    //
-    //if let Some(v) = map.get(&"nome".to_string()) {
-    //    println!("Value: {}", v);
-    //} else {
-    //    println!("No value found");
-    //}
-    //println!("{:?}", map);
-    //let mut map2 = HashMap::new(50);
-    //map2.insert("id".to_string(), 1234);
-    //println!("{:?}", map2);
+    map.remove(&"nome".to_string());
+    
+    if let Some(v) = map.get(&"nome".to_string()) {
+        println!("Value: {}", v);
+    } else {
+        println!("No value found");
+    }
+    println!("{:?}", map);
 
 }
 
