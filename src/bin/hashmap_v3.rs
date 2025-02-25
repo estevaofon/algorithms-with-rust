@@ -13,11 +13,11 @@ fn hash_to_index<K: ToString>(key: &K, arr_size: usize) -> usize {
 
 #[derive(Debug)]
 pub struct HashMap<K, V> {
-    buckets: Vec<Vec<Option<(K, V)>>>,
+    buckets: Vec<Vec<(K, V)>>,
     size: usize,
 }
 
-impl<K: ToString + std::clone::Clone + std::cmp::PartialEq, V: std::clone::Clone> HashMap<K, V> {
+impl<K: ToString + Clone + PartialEq, V: Clone> HashMap<K, V> {
     pub fn new(size: usize) -> Self {
         Self { 
             buckets: vec![Vec::new(); size],
@@ -27,19 +27,14 @@ impl<K: ToString + std::clone::Clone + std::cmp::PartialEq, V: std::clone::Clone
 
     pub fn insert(&mut self, key: K, value: V) {
         let index = hash_to_index(&key, self.size);
-        // self.arr[index] = Some((key, value));
-        let arr = &mut self.buckets[index];
-        arr.push(Some((key, value)));
+        self.buckets[index].push((key, value));
     }
 
     pub fn get(&self, key: &K) -> Option<&V> {
         let index = hash_to_index(key, self.size);
-        let arr = &self.buckets[index];
-        for i in arr {
-            if let Some((local_key, value)) = i {
-                if local_key == key {
-                    return Some(value);
-                }
+        for (local_key, value) in &self.buckets[index] {
+            if local_key == key {
+                return Some(value);
             }
         }
         None
@@ -47,21 +42,12 @@ impl<K: ToString + std::clone::Clone + std::cmp::PartialEq, V: std::clone::Clone
 
     pub fn remove(&mut self, key: &K) -> Option<V> {
         let index = hash_to_index(key, self.size);
-        let arr = &mut self.buckets[index];
-        let mut pos = -1;
-        for (local_index, i) in arr.iter_mut().enumerate() {
-            if let Some((local_key, _value)) = i {
-                if local_key == key {
-                    pos = local_index as i32;
-                    break;
-                }
-            }
-        }
-        if pos != -1 {
-            let removed = arr.remove(pos as usize);
-            if let Some((_, value)) = removed {
-                return Some(value);
-            }
+        if let Some(pos) = self.buckets[index]
+            .iter()
+            .position(|(local_key, _)| local_key == key)
+        {
+            let (_removed_key, removed_value) = self.buckets[index].remove(pos);
+            return Some(removed_value);
         }
         None
     }
@@ -88,7 +74,7 @@ fn main() {
     } else {
         println!("No value found");
     }
+    
     println!("{:?}", map);
-
 }
 
